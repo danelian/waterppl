@@ -1,0 +1,580 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: Gilroy;
+    font-weight: 400;
+    src: url('./fonts/Gilroy-Regular.woff') format("woff"),
+        url('./fonts/Gilroy-Regular.woff2') format("woff2");
+  }
+  @font-face {
+    font-family: Gilroy;
+    font-weight: 500;
+    src: url('./fonts/Gilroy-Medium.woff') format("woff"),
+        url('./fonts/Gilroy-Medium.woff2') format("woff2");
+  }
+  @font-face {
+    font-family: Gilroy;
+    font-weight: 600;
+    src: url('./fonts/Gilroy-SemiBold.woff') format("woff"),
+        url('./fonts/Gilroy-SemiBold.woff2') format("woff2");
+  }
+  @font-face {
+    font-family: Gilroy;
+    font-weight: 700;
+    src: url('./fonts/Gilroy-Bold.woff') format("woff"),
+        url('./fonts/Gilroy-Bold.woff2') format("woff2");
+  }
+  body {
+    @apply font-gilroy;
+  }
+}
+@layer components {
+  .container {
+    @apply max-w-[1920px];
+  }
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('./fonts/icomoon.eot');
+  src:  url('./fonts/icomoon.eot') format('embedded-opentype'),
+    url('./fonts/icomoon.ttf') format('truetype'),
+    url('./fonts/icomoon.woff') format('woff'),
+    url('./fonts/icomoon.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-arrow-left:before {
+  content: "\e90b";
+}
+.icon-arrow:before {
+  content: "\e900";
+}
+.icon-chevron:before {
+  content: "\e901";
+}
+.icon-facebook:before {
+  content: "\e903";
+}
+.icon-instagram:before {
+  content: "\e904";
+}
+.icon-menu:before {
+  content: "\e905";
+}
+.icon-close:before {
+  content: "\e902";
+}
+.icon-place:before {
+  content: "\e906";
+}
+.icon-telegram:before {
+  content: "\e907";
+}
+.icon-twitter:before {
+  content: "\e908";
+}
+.icon-whatsapp:before {
+  content: "\e909";
+}
+.icon-youtube:before {
+  content: "\e90a";
+}
+
+:root {
+  --content-fluid-width: 1790px;
+  --container-offset: 4rem;
+  --container-fluid-width: calc(var(--content-fluid-width) + (var(--container-offset) * 2));
+}
+@media screen and (min-width: 1024px) {
+  .container--fluid {
+    padding-left: max(4rem, (100% - var(--content-fluid-width)) / 2) !important;
+  }
+}
+/* стилизация карты */
+.map-baloon-info {
+  top: calc(50% - 80px);
+  left: calc(50% + 20px);
+  background: linear-gradient(0deg, rgba(52, 90, 222, 0.12) 0%, rgba(52, 90, 222, 0.12) 100%), rgba(217, 217, 217, 0.01);
+}
+
+/* стили для формы */
+.wpcf7-not-valid-tip,
+.wpcf7-response-output {
+  display: none !important;
+}
+.wpcf7-not-valid {
+  border-color: #BA2E2E !important;
+}
+.form-input {
+  display: block;
+  padding: 1.25rem;
+  width: 100%;
+  height: 60px;
+  font-size: 1.125rem;
+  line-height: 20px;
+  color: #ffffff;
+  border: 1px solid #3B4A59;
+  outline: none;
+  background: none;
+}
+.form-input:focus {
+  border-color: #91c2f5;
+}
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.50);
+}
+.form-textarea {
+  display: block;
+  padding: 1.25rem;
+  width: 100%;
+  min-height: 60px;
+  max-height: 20rem;
+  font-size: 1.125rem;
+  line-height: 20px;
+  color: #ffffff;
+  border: 1px solid #3B4A59;
+  outline: none;
+  background: none;
+}
+.form-textarea:focus {
+  border-color: #91c2f5;
+}
+.form-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.50);
+}
+.form-btn {
+  display: block;
+  padding: 1.25rem 1.75rem;
+  width: auto;
+  height: 60px;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 20px;
+  color: #ffffff;
+  text-align: center;
+  border: 1px solid #3B4A59;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+.form-btn:hover {
+  background: rgba(217, 217, 217, 0.01);
+  box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(15px);
+}
+
+/* затемнение под шапкой */
+main {
+  position: relative;
+  z-index: 9;
+}
+main::before {
+  content: '';
+  position: absolute;
+  top: 0;left: 0;
+  width: 100%;
+  height: 240px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.00) 100%);
+  z-index: 8;
+}
+body {
+  position: relative;
+  font-family: 'Gilroy', sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: #0a1a2a;
+  transition: .3s ease;
+}
+.page-template-contact-us {
+  background-size: cover;
+  background-position: center;
+}
+
+
+.nav-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 264px;
+  height: auto;
+  max-height: 100%;
+  overflow-y: auto;
+  padding: 34px 10px 22px 26px;
+  background-color: #0a1a2a;
+  border-bottom-left-radius: 25px;
+  transition: right .4s;
+}
+/* Show menu */
+.show-menu {
+  right: 0;
+  box-shadow: -30px 4px 40px rgba(10, 26, 42, 0.25);
+}
+.mob-menu li a {
+  font-size: 1.25rem/* 20px */;
+  line-height: 1.75rem/* 28px */;
+}
+
+
+/* затемнение в блоке about diving */
+.about-diving::before,
+.tripbl::before {
+  content: '';
+  position: absolute;
+  left: 0;top: -1px;right: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(180deg, #0A1A2A 0%, rgba(10, 26, 42, 0.00) 100%);
+  z-index: -1;
+}
+.about-diving::after,
+.tripbl::after {
+  content: '';
+  position: absolute;
+  left: 0;bottom: -1px;right: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(0deg, #0A1A2A 0%, rgba(10, 26, 42, 0.00) 100%);
+  z-index: -1;
+}
+
+/* стилизация стандартного слайдера */
+.tripsSwiper,
+.coursesSwiper {
+  overflow-x: visible;
+}
+.standartSwiper .swiper-slide > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  height: 100%;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  left: 0;bottom: 0;right: 0;
+  width: 100%;
+  height: 70%;
+  /* background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.60) 100%); */
+  /* background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.28) 30.10%, rgba(0, 0, 0, 0.77) 100%);
+   */
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.5) 30%, rgba(0, 0, 0, 0.8) 100%);
+  z-index: -1;
+}
+.card-wrapper>a:hover {
+  background-size: 110%;
+}
+
+/* стандартные затемнения */
+.ba::before,
+.team::before {
+  content: '';
+  position: absolute;
+  left: 0;top: -1px;right: 0;
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(180deg, #0A1A2A 0%, rgba(10, 26, 42, 0.00) 100%);
+  z-index: -1;
+}
+.ba::after,
+.team::after {
+  content: '';
+  position: absolute;
+  left: 0;bottom: 0;right: 0;
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(180deg, rgba(10, 26, 42, 0.00) 0%, #0A1A2A 100%);
+  z-index: -1;
+}
+/* .single-courses .ba::before {
+  content: '';
+  position: absolute;
+  left: 0;top: -149px;right: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(180deg, rgba(10, 26, 42, 0.00) 0%, #0A1A2A 100%);
+  z-index: -1;
+}
+.single-courses .ba::after {
+  height: 100%;
+} */
+  .single-courses .ba::after {
+    display: none;
+  }
+.single-courses main {
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: top center;
+  /* background-size: cover; */
+}
+
+.single-courses footer {
+  background-color: #0A1A2A;
+}
+.single-courses .ba::before,
+.course-gallery::before {
+  content: '';
+  position: absolute;
+  left: 0;top: -149px;right: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(180deg, rgba(10, 26, 42, 0.00) 0%, #0A1A2A 100%);
+  z-index: -1;
+}
+.course-infoitems>div:nth-child(1),
+.course-infoitems>div:nth-child(2) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.50);
+  padding-bottom: 60px;
+}
+@media screen and (max-width: 1023.98px) {
+  .single-courses main {
+    background-size: 200% auto;
+  }
+}
+@media screen and (max-width: 576px) {
+  .single-courses main {
+    background-size: 300% auto;
+  }
+}
+@media screen and (max-width: 415px) {
+  .single-courses main {
+    background-size: 400% auto;
+  }
+}
+.hero-video {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+.hero::before,
+.category::before {
+  content: '';
+  position: absolute;
+  left: 0;bottom: 0;right: 0;
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(180deg, rgba(10, 26, 42, 0.00) 0%, #0A1A2A 100%);
+  z-index: -1;
+}
+.faq-head .bg-image::after {
+  content: '';
+  position: absolute;
+  left: 0;bottom: 0;right: 0;
+  width: 100%;
+  height: 530px;
+  max-height: 90%;
+  background: linear-gradient(180deg, rgba(10, 26, 42, 0.00) 0%, #0A1A2A 100%);
+  z-index: 0;
+}
+.about-us::after {
+  content: '';
+  position: absolute;
+  left: 0;bottom: 0;right: 0;
+  width: 100%;
+  height: 530px;
+  max-height: 90%;
+  background: linear-gradient(180deg, rgba(10, 26, 42, 0.00) 0%, #0A1A2A 100%);
+  z-index: -1;
+}
+
+/* ------------- SWIPER ------------- */
+.swiper {
+  width: 100%;
+}
+.swiper-slide {
+  color: #ffffff;
+}
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.swiper-pagination {
+  /* margin-right: 24px;
+  margin-left: 24px; */
+  text-align: right;
+}
+.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  bottom: auto;
+  top: auto;
+  left: auto;
+  width: auto;
+}
+.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 5px 12px;
+}
+.swiper-pagination-bullet {
+  width: auto;
+  height: auto;
+  display: inline-block;
+  border-radius: 0;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1;
+  color: #ffffff;
+  background: none;
+  opacity: .2;
+}
+.swiper-pagination-bullet-active {
+  color: #91c2f5;
+  opacity: 1 !important;
+}
+.swiper-button-next:after {
+  font-family: 'icomoon';
+  content: '\e900';
+  font-size: 22px;
+}
+.swiper-button-prev:after {
+  font-family: 'icomoon';
+  content: '\e90b';
+  font-size: 22px;
+}
+.swiper-button-next.swiper-button-disabled,
+.swiper-button-prev.swiper-button-disabled {
+  opacity: 0;
+}
+.tripbl .swiper-button-next.swiper-button-disabled {
+  opacity: .2;
+}
+
+/* дополнительные стили для аккордеона */
+.accordion-content {
+  overflow: hidden;
+  height: 0;
+  transition: all 0.25s ease;
+}
+.accordion-content p {
+  max-width: 1420px;
+}
+.accordion-open .icon-chevron {
+  transform: rotate(180deg);
+}
+
+/* слайдер в блоке Place */
+.placeSwiper .swiper-slide::before {
+  content: '';
+  position: absolute;
+  left: 0;top: 0;
+  width: 100%;height: 100%;
+  background: rgba(0, 0, 0, 0.20);
+}
+.placeSwiper .swiper-pagination-bullet {
+  opacity: .7;
+}
+.reviews {
+  background-size: 100% auto;
+}
+ul {
+  padding-left: 30px;
+}
+.list-disc {
+  padding-left: 30px;
+}
+ol, ul {
+  list-style: initial;
+}
+ul li::marker {
+  font-size: 0.8em;
+}
+
+@media screen and (max-width: 1023.98px) {
+  main::before,
+  .team::before,
+  .team::after,
+  .tripbl::before,
+  .tripbl::after {
+    display: none;
+  }
+  .form-btn,
+  .wpcf7-form p {
+    width: 100%;
+  }
+  .reviews {
+    background-image: none !important;
+  }
+
+  .aboutbl {
+    background-position-y: 55%;
+    background-position-x: 60%;
+  }
+  .about-card::before {
+    content: '';
+    position: absolute;
+    left: 0;top: 0;right: 0;bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.20);
+  }
+  .about-card:first-child::before {
+    content: '';
+    position: absolute;
+    left: 0;top: 0;right: 0;bottom: auto;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(180deg, #0A1A2A 0%, rgba(10, 26, 42, 0.00) 100%);
+  }
+  .about-diving::before {
+    bottom: 0;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.40);
+  }
+  .about-diving::after {
+    height: 40%;
+  }
+
+  .team {
+    background-image: none !important;
+  }
+
+  .swiper-pagination {
+    margin-right: 24px;
+    margin-left: 24px;
+    text-align: center;
+  }
+  .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
+  .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 2px 6px;
+  }
+  .swiper-pagination-bullet {
+    font-size: 22px;
+  }
+
+  .about-us {
+    background-image: none !important;
+  }
+}
+
+.wpcf7-spinner {
+  display: none !important;
+}
